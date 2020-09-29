@@ -1,5 +1,6 @@
 package com.cybertekschool.library.pages;
 
+import com.cybertekschool.library.utils.ui.BrowserUtils;
 import com.cybertekschool.library.utils.ui.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,6 +21,7 @@ public class LoginPage {
     public WebElement signIn;
 
     public void login(String email, String password) {
+        BrowserUtils.waitForVisibility(this.email,5);
         this.email.sendKeys(email);
         this.password.sendKeys(password);
         signIn.click();
