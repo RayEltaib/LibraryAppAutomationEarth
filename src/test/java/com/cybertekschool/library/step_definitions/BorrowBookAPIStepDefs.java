@@ -9,6 +9,7 @@ import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.is;
 
 public class BorrowBookAPIStepDefs extends BaseStep{
 
@@ -22,20 +23,14 @@ public class BorrowBookAPIStepDefs extends BaseStep{
         AuthenticationUtility authenticationUtility = new StudentAuthenticationUtility();
         String token = authenticationUtility.getLoginResponse().path("token");
 
-        response = given().header("x-library-token",token)
-                .formParams("book_id",1,"user_id",1)
-                .when().get(base_uri+Endpoints.BOOK_BORROW);
-
-        //System.out.println("Endpoints.BORROW_BOOK = " + base_uri+Endpoints.BOOK_BORROW);
-
-        response.prettyPrint();
-        //response.then().statusCode(200);
+        response = userAPI.borrowBook().prettyPeek();
+        //response.prettyPrint();
 
     }
 
     @Then("verify response body has {string} message")
     public void verify_response_body_has_message(String str) {
-        //response.then().header("message","The book has been borrowed...");
+        response.then().assertThat().body("message", is("The book has been borrowed..."));
     }
 
 }
