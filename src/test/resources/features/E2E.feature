@@ -3,7 +3,7 @@
 Feature: End to End Testing
 
   Scenario: End to End Testing
-    Then new student is added using the add_user endpoint
+    Then new librarian is added using the add_user endpoint
     And user makes API call to add a book
       | name     | isbn       | year | author  | book_category_id | description               |
       | The Book | 0123456789 | 2020 | I Sahin | 1                | The book about everything |
