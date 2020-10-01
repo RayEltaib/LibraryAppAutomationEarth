@@ -49,7 +49,7 @@ public class BooksAPI {
         String librarianToken = authenticationUtility.getToken();
         //Map<String,Object> putMap = new HashMap<>();
         //putMap.put("name","NAME");
-        Response response = given().
+        Response response = given().contentType("application/json").
                 accept(ContentType.JSON).
                 header("x-library-token", librarianToken).
                 body(putMap).
