@@ -26,29 +26,24 @@ import static io.restassured.RestAssured.*;
 public class EditBookStepDefs {
     String accessToken;
     Response response;
+    AuthenticationUtility authenticationUtility;
 
     @Given("the user logged in as {string} in API")
     public void the_user_logged_in_as_in_api(String user) throws Exception {
         String email = null, password = null;
         switch (user.toLowerCase()) {
             case "librarian":
-                email = Environment.getProperty("librarian_email");
-                password = Environment.getProperty("librarian_password");
-                password = Encoder.decrypt(password);
+                authenticationUtility = new LibrarianAuthenticationUtility();
+                accessToken = authenticationUtility.getToken();
                 break;
             case "student":
-                email = Environment.getProperty("student_email");
-                password = Environment.getProperty("student_password");
-                password = Encoder.decrypt(password);
+                authenticationUtility = new StudentAuthenticationUtility();
+                accessToken = authenticationUtility.getToken();
                 break;
             default:
                 throw new Exception("Wrong user type is provided: " + user);
         }
-        response = given().formParam("email",email)
-                .formParam("password",password)
-                .when().post("login");
 
-        accessToken = response.path("token");
     }
 
     @When("the user edit the book using following info")
