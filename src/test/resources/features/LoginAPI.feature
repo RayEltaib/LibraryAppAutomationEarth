@@ -1,4 +1,4 @@
-@mrt
+
 Feature: Login through API
 
   Scenario Outline: Verify successful valid login attempts

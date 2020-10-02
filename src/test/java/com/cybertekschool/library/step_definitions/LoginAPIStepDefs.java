@@ -35,8 +35,8 @@ public class LoginAPIStepDefs {
             default:
                 throw new Exception("Wrong user type is provided: " + user);
         }
-            response = given().formParam("email","librarian13@library")
-                .formParam("password","9rf6axdD")
+            response = given().formParam("email",email)
+                .formParam("password",password)
                 .when().post("login");
 
 
