@@ -1,7 +1,7 @@
-@e2e
-
+@e2e @ELE-99
 Feature: End to End Testing
 
+  @ELE-94 @ELE-88
   Scenario: End to End Testing
     Then new librarian is added using the add_user endpoint
     Then user makes API call to add a book

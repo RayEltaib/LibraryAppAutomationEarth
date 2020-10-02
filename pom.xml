@@ -72,7 +72,6 @@
                     <threadCount>3</threadCount>
                     <perCoreThreadCount>false</perCoreThreadCount>
                     <forkCount>2C</forkCount>
-                    <runOrder>Alphabetical</runOrder>
                 </configuration>
             </plugin>
             <plugin>
