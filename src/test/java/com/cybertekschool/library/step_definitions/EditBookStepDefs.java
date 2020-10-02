@@ -30,7 +30,7 @@ public class EditBookStepDefs {
 
     @Given("the user logged in as {string} in API")
     public void the_user_logged_in_as_in_api(String user) throws Exception {
-        String email = null, password = null;
+
         switch (user.toLowerCase()) {
             case "librarian":
                 authenticationUtility = new LibrarianAuthenticationUtility();
