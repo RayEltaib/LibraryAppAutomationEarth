@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
         plugin = {
                 "pretty",
                 "json:target/cucumber.json",
+                "html:target/default-html-reports",
                 "rerun:target/rerun.txt"
         },
 
@@ -16,7 +17,7 @@ import org.junit.runner.RunWith;
         glue = "com/cybertekschool/library/step_definitions",
         dryRun = false,
 
-        tags = "@mrt"
+        tags = "@e2e"
 
 )
 public class CukesRunner {
