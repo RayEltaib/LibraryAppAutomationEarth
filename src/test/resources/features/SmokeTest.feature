@@ -1,4 +1,4 @@
-@ELE-97
+@ELE-97 @api_smoke
 Feature: API Smoke Test
 
 	@ELE-95 @ELE-93 @ELE-33 @ELE-98
