@@ -24,7 +24,6 @@ public class BorrowBookAPIStepDefs extends BaseStep{
         String token = authenticationUtility.getLoginResponse().path("token");
 
         response = userAPI.borrowBook().prettyPeek();
-        //response.prettyPrint();
 
     }
 

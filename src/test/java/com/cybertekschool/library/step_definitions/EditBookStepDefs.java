@@ -49,11 +49,9 @@ public class EditBookStepDefs {
     @When("the user edit the book using following info")
     public void the_user_edit_the_book_using_following_info(Map<String,Object> map) {
 
-
-//        response = given().contentType("application/json").accept(ContentType.JSON).header("x-library-token",accessToken).body(map).when().patch(Endpoints.UPDATE_BOOK);
         BooksAPI booksAPI = new BooksAPI();
         response = booksAPI.editBook(map);
-//        response.prettyPrint();
+
     }
     @Then("the correct message should be received")
     public void the_correct_message_should_be_received() {
