@@ -64,7 +64,7 @@ public class EditBookStepDefs {
         Response responseGet = given().accept(ContentType.JSON).header("x-library-token",accessToken).pathParam("id",750)
                 .when().get("/get_book_by_id/{id}");
 
-        Map<String,Object> actual = responseGet.as(Map.class);
+        Map actual = responseGet.as(Map.class);
 
         actual.remove("added_date");
         Assert.assertEquals(map,actual);
