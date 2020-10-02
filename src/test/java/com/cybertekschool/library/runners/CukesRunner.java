@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
                 "html:target/default-html-reports",
                 "rerun:target/rerun.txt"
         },
-        publish = true,
+        
         features = "src/test/resources/features",
         glue = "com/cybertekschool/library/step_definitions",
         dryRun = false,
